@@ -1,0 +1,8 @@
+- [ ] Arguments
+    - [ ] Avec des options
+    - [ ] Mettre en place des options pour l'utilisation d'une cli
+- [ ] Récupération du fichier
+    - [ ] mise en place des textures (répertoire et récupération)
+- [ ] Calcul des distances
+    - [ ] Affichage des textures
+- [ ] Faire une doc détaillé avec tous les arguments utilisables
