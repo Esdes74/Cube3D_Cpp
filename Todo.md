@@ -1,8 +1,13 @@
 - [ ] Arguments
     - [ ] Avec des options
     - [ ] Mettre en place des options pour l'utilisation d'une cli
+    --> Le but est de pouvoir lancer une batterie de test grace à un script, batterie de test qui devra tester vraiment en profondeur le code
 - [ ] Récupération du fichier
-    - [ ] mise en place des textures (répertoire et récupération)
+    - [ ] Mise en place des textures (répertoire et récupération)
+    - [ ] Réfléchire à comment gérer des annimations
 - [ ] Calcul des distances
     - [ ] Affichage des textures
+    - [ ] Brouillard de guerre
 - [ ] Faire une doc détaillé avec tous les arguments utilisables
+    - [ ] Il faut également que la doc décrive le fonctionnement du moteur
+        - [ ] Pour pouvoir faire un éditeur de niveau plus tard
