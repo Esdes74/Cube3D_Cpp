@@ -1,10 +1,10 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <fstream>
  
-int main()
+int main(int ac, char** av)
 {
-		std::cout << __cplusplus << std::endl;
     // greet the user
     std::string name;
     std::cout << "What is your name? ";
@@ -24,4 +24,14 @@ int main()
     input2.str("a;b;c;d");
     for (std::string line; std::getline(input2, line, ';');)
         std::cout << line << '\n';
+    std::cout << '\n';
+
+    // lecture d'un fichier
+    if (ac < 1)
+        std::cout << "Error: Missing argument" << std::endl;
+    std::ifstream inputFile = std::ifstream(av[1], std::ios_base::in);
+    for (std::string line; std::getline(inputFile, line);)
+        std::cout << line << '\n';
+
+    return 0;
 }
