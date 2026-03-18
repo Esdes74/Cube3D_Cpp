@@ -1,6 +1,9 @@
 Lancement d'un fichier de map
+clean tous le contexte (pour relancer une map depuis le début par exemple)
 
 Changement d'une texture
+
+Headless
 
 print variable
 --> utiliser une map
