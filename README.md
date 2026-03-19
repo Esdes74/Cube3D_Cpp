@@ -8,40 +8,40 @@ Pour lancer le moteur:
 
 `<options>`
 
-Ce sont les options pour lancer le moteur, le moteur peut se lancer sans options
+    Ce sont les options pour lancer le moteur, le moteur peut se lancer sans options
 
 ---
 `<argument>`
 
-C'est l'argument de lancement que prends le programme.
-Dans certains cas (avec certaines options) les arguments sont facultatifs mais si le moteur est lancé sans options le moteur affichera une erreure d'argument invalide dans la console et s'arretera
+    C'est l'argument de lancement que prends le programme.
+    Dans certains cas (avec certaines options) les arguments sont facultatifs mais si le moteur est lancé sans options le moteur affichera une erreure d'argument invalide dans la console et s'arretera
 
 ## Options
 
 `--cli`
 
-Il s'agit d'une cli, un programme qui permet d'interragire avec le moteur depuis une interface de commande
+    Il s'agit d'une cli, un programme qui permet d'interragire avec le moteur depuis une interface de commande
 >Pour voir toutes les commandes accessibles dans la cli [fouillez ce document](Doc/CLI_COMMAND.md)
 
-Il faudra surement utiliser la bibliothèque xtd
+    Il faudra surement utiliser la bibliothèque xtd
 
 ---
 `--cli-file <file>`
 
-Elle permet de lancer le moteur en mode cli
-Elle va lire les instructions dans le fichier `file` pour les éxécuter
+    Elle permet de lancer le moteur en mode cli
+    Elle va lire les instructions dans le fichier `file` pour les éxécuter
 
 ---
 `--debug`
 
-Elle permet de lancer le moteur en mode debug
-Cela signifie que le moteur se lance avec un terminal accessible
-Le terminal sera une reproduction de la cli (il permettra donc de faire les memes commandes que la cli)
+    Elle permet de lancer le moteur en mode debug
+    Cela signifie que le moteur se lance avec un terminal accessible
+    Le terminal sera une reproduction de la cli (il permettra donc de faire les memes commandes que la cli)
 
 ---
 `--headless`
 
-Elle permet de lancer le moteur sans l'affichage. Tous les calculs sont fait. Seulement l'affichage n'est pas fait
+    Elle permet de lancer le moteur sans l'affichage. Tous les calculs sont fait. Seulement l'affichage n'est pas fait
 
 > Seulement l'affichage du jeu ne se fait pas. En revanche la console du debug ou de la cli peut s'afficher pour intéragir avec
 
@@ -51,18 +51,18 @@ Elle permet de lancer le moteur sans l'affichage. Tous les calculs sont fait. Se
 
 `./motor --cli` ou `./motor --cli-file tests/lancement1.txt` ou `./motor --debug`
 
-Va pouvoir se lancer car la cli possède des commandes pour prendre un fichier en argument
+    Va pouvoir se lancer car la cli possède des commandes pour prendre un fichier en argument
 
 ---
 `./motor` ou `./motor --headless`
 
-Va se lancer, afficher un message d'erreure dans le terminale et se terminer
+    Va se lancer, afficher un message d'erreure dans le terminale et se terminer
 
 ---
 `./motor map/fire/cave.txt` ou `./motor --headless map/fire/cave.txt`
 
-Va se lancer correctement dans le premier cas
-Dans le second cas (--headless) se lancera sans l'affichage mais il sera fonctionnel (cela signifie qu'on pourra se déplacer, attaquer etc... mais qu'on ne verras rien du tous)
+    Va se lancer correctement dans le premier cas
+    Dans le second cas (--headless) se lancera sans l'affichage mais il sera fonctionnel (cela signifie qu'on pourra se déplacer, attaquer etc... mais qu'on ne verras rien du tous)
 
 
 
