@@ -10,6 +10,8 @@ print variable
 
 pause
 resume
+Assert sur une variable
+--> Par exemple pour vérifier que la munition récupéré à bien augmenté le stock de 1
 
 déplacements
 toggles différents éléments (par exemple la minimap s'il y en as une)
