@@ -23,7 +23,8 @@ Pour lancer le moteur:
     Il s'agit d'une cli, un programme qui permet d'interragire avec le moteur depuis une interface de commande
 >Pour voir toutes les commandes accessibles dans la cli [fouillez ce document](Doc/CLI_COMMAND.md)
 
-    Il faudra surement utiliser la bibliothèque xtd
+    Le heredoc est utilisable.
+		Le problème ne venait pas du c++ qui ne peut pas lire depuis un scirpt bash mais du comportement du script bash lui meme.
 
 ---
 `--cli-file <file>`
