@@ -8,7 +8,7 @@ Pour lancer le moteur:
 
 `<options>`
 
-    Ce sont les options pour lancer le moteur, le moteur peut se lancer sans options
+    Ce sont les options pour lancer le moteur, elles sont facultatives.
 
 ---
 `<argument>`
@@ -65,6 +65,13 @@ Pour lancer le moteur:
     Va se lancer correctement dans le premier cas
     Dans le second cas (--headless) se lancera sans l'affichage mais il sera fonctionnel (cela signifie qu'on pourra se déplacer, attaquer etc... mais qu'on ne verras rien du tous)
 
+## Tests
+
+Le but de ce projet est de créer un moteur de jeux 3D
+
+Le but est également de faire un développement le plus poussé possible.
+Dans ce but, la cli est mise en place pour faciliter l'automatisation des tests grace à l'éxécution de scripts.
+> Il serait intéressant de mettre en place un systeme de statistique des tests, avec des graphiques qui donnent les tendances etc...
 
 
 

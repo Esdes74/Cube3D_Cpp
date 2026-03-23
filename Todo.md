@@ -13,4 +13,6 @@
         - [ ] Il faut également que la doc décrive le fonctionnement du moteur
             - [ ] Pour pouvoir faire un éditeur de niveau plus tard
 
+- [ ] Implémenter les tests pour les fonctions documentées
+
 - [ ] Implémenter les fonctions documentées
