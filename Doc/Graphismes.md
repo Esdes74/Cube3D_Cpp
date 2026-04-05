@@ -24,6 +24,7 @@ Pour installer sdl 2 il suffit de suivre le tuto sur cette page ci: `https://dev
 # Le choix des graphismes
 
 Pour l'instant il s'agit plus de graphismes super basiques (wolfenstein 3D) en 2.5D
+--> Peut etre évolution vers 3D simple
 
 
 
