@@ -1,6 +1,6 @@
 #include "main_utils.h"
 
-int	setup(struct S_SetupWindows S_SetupWindows)
+int	setup(SetupWindows& S_SetupWindows)
 {
 	// Setup SDL
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
@@ -66,7 +66,7 @@ int	setup(struct S_SetupWindows S_SetupWindows)
 	return 0;
 }
 
-void handle_poll_events(struct S_SetupWindows S_SetupWindows, bool& done)
+void handle_poll_events(SetupWindows& S_SetupWindows, bool& done)
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -79,7 +79,7 @@ void handle_poll_events(struct S_SetupWindows S_SetupWindows, bool& done)
 	}
 }
 
-void start_frame(struct S_SetupWindows S_SetupWindows)
+void start_frame(SetupWindows& S_SetupWindows)
 {
 	// Start the Dear ImGui frame
 	ImGui_ImplOpenGL3_NewFrame();
@@ -87,7 +87,7 @@ void start_frame(struct S_SetupWindows S_SetupWindows)
 	ImGui::NewFrame();
 }
 
-void main_loop(struct S_SetupWindows S_SetupWindows)
+void main_loop(SetupWindows& S_SetupWindows)
 {
 	bool show_demo_window = true;
 	bool show_another_window = false;
@@ -131,12 +131,12 @@ void main_loop(struct S_SetupWindows S_SetupWindows)
 	}
 }
 
-void render_frame(struct S_SetupWindows S_SetupWindows)
+void render_frame(SetupWindows& S_SetupWindows)
 {
-	int Color_x = S_SetupWindows.clear_color.x;
-	int Color_y = S_SetupWindows.clear_color.y;
-	int Color_z = S_SetupWindows.clear_color.z;
-	int Color_w = S_SetupWindows.clear_color.w;
+	float Color_x = S_SetupWindows.clear_color.x;
+	float Color_y = S_SetupWindows.clear_color.y;
+	float Color_z = S_SetupWindows.clear_color.z;
+	float Color_w = S_SetupWindows.clear_color.w;
 
 	// Rendering
 	ImGui::Render();
@@ -147,7 +147,7 @@ void render_frame(struct S_SetupWindows S_SetupWindows)
 	SDL_GL_SwapWindow(S_SetupWindows.window);
 }
 
-void cleanup(struct S_SetupWindows S_SetupWindows)
+void cleanup(SetupWindows& S_SetupWindows)
 {
 	// Cleanup
 	ImGui_ImplOpenGL3_Shutdown();

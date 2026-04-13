@@ -8,19 +8,19 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 
-struct S_SetupWindows
+typedef struct S_SetupWindows
 {
 	SDL_Window		*window;
 	ImGuiIO 		io;
 	ImVec4			clear_color;
 	SDL_GLContext	gl_context; 
-};
+}	SetupWindows;
 
-int		setup(struct S_SetupWindows S_SetupWindows);
-void	handle_poll_events(struct S_SetupWindows S_SetupWindows, bool &done);
-void	start_frame(struct S_SetupWindows S_SetupWindows);
-void	main_loop(struct S_SetupWindows S_SetupWindows);
-void	render_frame(struct S_SetupWindows S_SetupWindows);
-void	cleanup(struct S_SetupWindows S_SetupWindows);
+int		setup(SetupWindows& S_SetupWindows);
+void	handle_poll_events(SetupWindows& S_SetupWindows, bool &done);
+void	start_frame(SetupWindows& S_SetupWindows);
+void	main_loop(SetupWindows& S_SetupWindows);
+void	render_frame(SetupWindows& S_SetupWindows);
+void	cleanup(SetupWindows& S_SetupWindows);
 
 #endif
