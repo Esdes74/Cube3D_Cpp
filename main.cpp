@@ -276,7 +276,7 @@ int main(int ac, char** av)
 	i = 1;
 	while (i < ac)
 	{
-		args.find(av[i]);
+		args.find(i, av);
 		i++;
 	}
 

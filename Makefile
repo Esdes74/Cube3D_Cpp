@@ -8,6 +8,7 @@ IMGUI_DIR := $(LIBRAIRY_DIR)lib_imgui/
 OBJ_DIR := .obj/
 BACKENDS_DIR := $(IMGUI_DIR)backends/
 ARGUMENTS_DIR := $(LIBRAIRY_DIR)arguments/
+CLI_DIR := $(LIBRAIRY_DIR)cli/
 
 IMGUI_SOURCES =	imgui.cpp \
 				imgui_demo.cpp \
@@ -25,16 +26,24 @@ SRC +=	main.cpp
 
 OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(basename $(notdir $(SRC)))))
 
-IMGUI_HEADEARS =	main_utils.h
+IMGUI_HEADEARS :=	main_utils.h
 
-ARGUMENTS_HEADERS =	arguments.hpp
+ARGUMENTS_HEADERS :=	arguments.hpp
+
+CLI_HEADERS :=	cli.hpp
 
 HDS = $(addprefix $(IMGUI_DIR), $(IMGUI_HEADEARS))
 HDS += $(addprefix $(ARGUMENTS_DIR), $(ARGUMENTS_HEADERS))
+HDS += $(addprefix $(CLI_DIR), $(CLI_HEADERS))
 
 LINUX_GL_LIBS = -lGL
 
-CXXFLAGS = -I$(IMGUI_DIR) -I$(BACKENDS_DIR) -I$(ARGUMENTS_DIR) `sdl2-config --cflags`
+INCLUDES :=	-I$(IMGUI_DIR) \
+			-I$(BACKENDS_DIR) \
+			-I$(ARGUMENTS_DIR) \
+			-I$(CLI_DIR)
+
+CXXFLAGS = $(INCLUDES) `sdl2-config --cflags`
 CXXFLAGS += -g -Wall -Wformat
 LIBS = $(LINUX_GL_LIBS) -ldl `sdl2-config --libs`
 
