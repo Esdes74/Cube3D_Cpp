@@ -5,17 +5,22 @@
 # include <string>
 # include <iostream>
 # include <fstream>
+# include <vector>
+# include "utils.hpp"
 
 using namespace std;
 
 class Cli
 {
 	private:
-		map<string, void (*)(string &)>	cliMap;
+		map<string, void (*)(vector<string> &)>	cliMap;
 
-		static void	bonjour(string &args){
+		static void	bonjour(vector<string> &args){
 			cout << "bonjour" << endl;
-			cout << args << endl;
+			for (size_t i = 1; i < args.size(); i++)
+			{
+				cout << args[i] << endl;
+			}
 		};
 
 	public:
@@ -25,9 +30,10 @@ class Cli
 
 		void openCli(string str="")
 		{
-			// Il faut créer un thread ou un process pour la cli
-			string	line;
-			map<string, void (*)(string &)>::iterator	it;
+			// TODO: Ajouter une logique de thread
+			string										line;
+			vector<string>								args;
+			map<string, void (*)(vector<string> &)>::iterator	it;
 
 			if (str != "")
 			{
@@ -35,28 +41,32 @@ class Cli
 
 				if (file)
 				{
-					while (getline(file, line, ' '))
+					while (getline(file, line))
 					{
-						// TODO: Mettre en place la logique d'appel des fonctions avec leurs arguments
-						// cout << line << endl;
-						it = cliMap.find(line);
-						if (it != cliMap.end()){
-							it->second(line);
+						args = Utils::splitString(line, ' ');
+
+						if (args.size() > 0)
+						{
+							it = cliMap.find(args[0]);
+							if (it != cliMap.end()){
+								it->second(args);
+							}
 						}
 					}
 				}
 			}
 			else
 			{
-				while(getline(cin, line, ' '))
+				while(getline(cin, line))
 				{
-					// TODO: Mettre en place la logique d'appel des fonctions avec leurs arguments
-					// TODO: Voir pourquoi il y a un problème avec cette fonction
-					// (elle n'arrive pas a aller chercher la commande entrée dans le cin)
-					// cout << line << endl;
-					it = cliMap.find(line);
-					if (it != cliMap.end()){
-						it->second(line);
+					args = Utils::splitString(line, ' ');
+
+					if (args.size() > 0)
+					{
+						it = cliMap.find(args[0]);
+						if (it != cliMap.end()){
+							it->second(args);
+						}
 					}
 				}
 			}
