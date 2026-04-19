@@ -1,6 +1,7 @@
-CXX = g++
-
-NAME := Motor
+###########################################################
+#                     Main project                        #
+###########################################################
+MAIN := Motor
 
 LIBRAIRY_DIR := lib/
 IMGUI_DIR := $(LIBRAIRY_DIR)lib_imgui/
@@ -24,7 +25,7 @@ SRC = $(addprefix $(IMGUI_DIR), $(IMGUI_SOURCES))
 SRC += $(addprefix $(BACKENDS_DIR), $(BACKENDS_SOURCES))
 SRC +=	main.cpp
 
-OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(basename $(notdir $(SRC)))))
+OBJS =	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(basename $(notdir $(SRC)))))
 
 IMGUI_HEADEARS :=	main_utils.h
 
@@ -35,6 +36,28 @@ CLI_HEADERS :=	cli.hpp
 HDS = $(addprefix $(IMGUI_DIR), $(IMGUI_HEADEARS))
 HDS += $(addprefix $(ARGUMENTS_DIR), $(ARGUMENTS_HEADERS))
 HDS += $(addprefix $(CLI_DIR), $(CLI_HEADERS))
+
+###########################################################
+#                     Test project                        #
+###########################################################
+TEST := Tests
+
+TESTS_DIR := tests/
+TESTS_OBJ_DIR := $(TESTS_DIR).obj/
+TESTS_LIBRAIRY_DIR := $(TESTS_DIR)lib/
+
+TESTS_SOURCES :=	tests.cpp
+
+TESTS_HEADERS :=	tests.hpp
+
+TESTS_OBJ =	$(addprefix $(TESTS_OBJ_DIR), \
+			$(addsuffix .o, $(basename $(notdir $(TESTS_SOURCES)))))
+
+###########################################################
+#                   Global variables                      #
+###########################################################
+
+CXX = g++
 
 LINUX_GL_LIBS = -lGL
 
@@ -47,31 +70,52 @@ CXXFLAGS = $(INCLUDES) `sdl2-config --cflags`
 CXXFLAGS += -g -Wall -Wformat
 LIBS = $(LINUX_GL_LIBS) -ldl `sdl2-config --libs`
 
+###########################################################
+#                     Builds rules                        #
+###########################################################
+
 #
-### BUILD RULES
+### MAIN
 #
 
-all: mkdir $(NAME)
-	@echo Build complete for $(ECHO_MESSAGE)
+all: mkdir $(MAIN)
 
 $(OBJ_DIR)%.o: %.cpp $(HDS)
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(OBJ_DIR)%.o: $(IMGUI_DIR)%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(OBJ_DIR)%.o: $(BACKENDS_DIR)%.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-$(NAME): $(OBJS)
-	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
+$(MAIN): $(OBJS)
+	@$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
+	@echo Build complete for main project
+
+#
+### TESTS
+#
+
+tests: mkdir $(TEST) $(MAIN)
+
+$(TESTS_OBJ_DIR)%.o: $(TESTS_DIR)%.cpp# $(TESTS_HEADERS)
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(TEST): $(TESTS_OBJ)
+	@$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
+	@echo Tests build complete
+
+#
+### Global
+#
 
 mkdir:
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR) $(TESTS_OBJ_DIR)
 
 clean:
-	rm -f $(NAME) $(OBJS)
+	@rm -f $(MAIN) $(OBJS)
 
 re: clean all
 
-.PHONY: all mkdir clean re
+.PHONY: all mkdir clean re tests

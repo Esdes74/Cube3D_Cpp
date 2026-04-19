@@ -70,7 +70,11 @@ class Cli
 					}
 				}
 			}
-		};
+		}
+
+		void	executeBonjour(vector<string> str){
+			bonjour(str);
+		}
 };
 
 #endif
