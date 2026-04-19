@@ -28,36 +28,38 @@ class Cli
 			cliMap["bonjour"] = bonjour;
 		};
 
-		void openCli(string str="")
+		void openCli()
 		{
 			// TODO: Ajouter une logique de thread
 			string										line;
 			vector<string>								args;
 			map<string, void (*)(vector<string> &)>::iterator	it;
 
-			if (str != "")
+			while (getline(cin, line))
 			{
-				ifstream	file(str);
+				args = Utils::splitString(line, ' ');
 
-				if (file)
+				if (args.size() > 0)
 				{
-					while (getline(file, line))
-					{
-						args = Utils::splitString(line, ' ');
-
-						if (args.size() > 0)
-						{
-							it = cliMap.find(args[0]);
-							if (it != cliMap.end()){
-								it->second(args);
-							}
-						}
+					it = cliMap.find(args[0]);
+					if (it != cliMap.end()){
+						it->second(args);
 					}
 				}
 			}
-			else
+		}
+
+		void	openCliFile(string str){
+			// TODO: Ajouter une logique de thread
+			string												line;
+			vector<string>										args;
+			map<string, void (*)(vector<string> &)>::iterator	it;
+
+			ifstream	file(str);
+
+			if (file)
 			{
-				while(getline(cin, line))
+				while (getline(file, line))
 				{
 					args = Utils::splitString(line, ' ');
 
