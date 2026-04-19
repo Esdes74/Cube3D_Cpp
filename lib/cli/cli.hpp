@@ -21,18 +21,18 @@ class Cli
 			{
 				cout << args[i] << endl;
 			}
-		};
+		}
 
 	public:
 		Cli(){
 			cliMap["bonjour"] = bonjour;
-		};
+		}
 
 		void openCli()
 		{
 			// TODO: Ajouter une logique de thread
-			string										line;
-			vector<string>								args;
+			string												line;
+			vector<string>										args;
 			map<string, void (*)(vector<string> &)>::iterator	it;
 
 			while (getline(cin, line))

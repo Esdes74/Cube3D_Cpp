@@ -12,22 +12,22 @@ class Arguments
 {
 	private:
 		map<string, void (*)(int &, char **)>	argumentsMap;
-		
+
 		static void	cli(int &i, char **av){
 			cout << "Dans la fonction de cli" << endl;
 			Cli().openCli();
 		};
-	
+
 		static void	cliFile(int &i, char **av){
 			cout << "Dans la fonction de cli file" << endl;
 			// TODO: Gérer le cas ou il n'y a pas d'arguments
-			Cli().openCli(av[++i]);
+			Cli().openCliFile(av[++i]);
 		};
-	
+
 		static void	debug(int &i, char **av){
 			cout << "Dans la fonction de debug" << endl;
 		};
-	
+
 		static void	headless(int &i, char **av){
 			cout << "Dans la fonction de headless" << endl;
 		};
