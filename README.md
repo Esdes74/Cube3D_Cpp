@@ -4,7 +4,7 @@ Cube3D de l'école 42 fais en c++ et un peu refait a ma convenance
 
 # Sommaire
 
-- [Cude3D_Cpp](#cude3d_cpp)
+- [Cude3D\_Cpp](#cude3d_cpp)
 - [Sommaire](#sommaire)
 - [Lancement du projet](#lancement-du-projet)
 	- [Options](#options)
@@ -25,6 +25,9 @@ Pour lancer le moteur:
 
     C'est l'argument de lancement que prends le programme.
     Dans certains cas (avec certaines options) les arguments sont facultatifs mais si le moteur est lancé sans options le moteur affichera une erreure d'argument invalide dans la console et s'arretera
+
+---
+[Cliquer ici pour voir la doc technique des options et arguments](Doc/Documentation_technique/Index.md)
 
 ## Options
 

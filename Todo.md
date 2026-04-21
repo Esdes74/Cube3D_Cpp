@@ -13,8 +13,8 @@
         - [ ] Il faut également que la doc décrive le fonctionnement du moteur
             - [ ] Pour pouvoir faire un éditeur de niveau plus tard
 
-- [ ] Implémenter un Makefile correcte
-    - [ ] Dans cette optique il serais intelligent de compiler imgui comme bibliothèque statique
+- [x] Implémenter un Makefile correcte
+    - [x] Dans cette optique il serais intelligent de compiler imgui comme bibliothèque statique
 
 - [ ] Implémenter les tests pour les fonctions documentées
 
