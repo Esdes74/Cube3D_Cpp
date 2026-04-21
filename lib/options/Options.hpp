@@ -1,17 +1,17 @@
-#ifndef ARGUMENTS_HPP
-# define ARGUMENTS_HPP
+#ifndef OPTIONS_HPP
+# define OPTIONS_HPP
 
 # include <map>
 # include <string>
 # include <iostream>
-# include "cli.hpp"
+# include "Cli.hpp"
 
 using namespace std;
 
-class Arguments
+class Options
 {
 	private:
-		map<string, void (*)(int &, char **)>	argumentsMap;
+		map<string, void (*)(int &, char **)>	optionsMap;
 
 		static void	cli(int &i, char **av){
 			cout << "Dans la fonction de cli" << endl;
@@ -33,18 +33,18 @@ class Arguments
 		};
 
 	public:
-		Arguments(){
-			argumentsMap["--cli"] = cli;
-			argumentsMap["--cli-file"] = cliFile;
-			argumentsMap["--debug"] = debug;
-			argumentsMap["--headless"] = headless;
+		Options(){
+			optionsMap["--cli"] = cli;
+			optionsMap["--cli-file"] = cliFile;
+			optionsMap["--debug"] = debug;
+			optionsMap["--headless"] = headless;
 		};
 
 		void	find(int &i, char **av){
 			map<string, void (*)(int &, char **)>::iterator	it;
-			it = argumentsMap.find(av[i]);
+			it = optionsMap.find(av[i]);
 
-			if (it != argumentsMap.end())
+			if (it != optionsMap.end())
 			{
 				it->second(i, av);
 			}
