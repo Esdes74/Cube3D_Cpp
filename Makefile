@@ -48,7 +48,8 @@ TESTS_LIBRAIRY_DIR := $(TESTS_DIR)lib/
 
 TESTS_SOURCES :=	tests.cpp
 
-TESTS_HEADERS :=	CliTest.hpp
+TESTS_HEADERS :=	AbstractTest.hpp \
+					CliTest.hpp
 
 HEADERS :=	$(addprefix $(TESTS_LIBRAIRY_DIR), $(TESTS_HEADERS))
 
