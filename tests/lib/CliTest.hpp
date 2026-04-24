@@ -1,25 +1,33 @@
 #ifndef CLITEST_HPP
 # define CLITEST_HPP
 
+# include <string>
 # include <fstream>
 # include <iostream>
+# include "AbstractTest.hpp"
 
 using namespace std;
 
-class	CliTest
+class	CliTest: public AbstractTest
 {
 	private:
-		ofstream	logFile;
-	
-	public:
-		CliTest(){
-			logFile.open("tests/log/cli_test_log.txt");
-		}
+		string	test;
 
-		~CliTest(){
-			// Vérification du fichier de log
-			logFile.close();
-		}
+	protected:
+		void	initTest(){
+			test = "test001";
+		};
+
+		void	run(){
+			logFile << "bonjour je suis le test " << test << endl;
+		};
+
+		void	errorMSG(){
+			cout << "Error message with " << file << endl;
+		};
+
+	public:
+		CliTest(): AbstractTest("cli_test_log.txt"){};
 };
 
 #endif
