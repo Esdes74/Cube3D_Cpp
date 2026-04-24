@@ -48,7 +48,9 @@ TESTS_LIBRAIRY_DIR := $(TESTS_DIR)lib/
 
 TESTS_SOURCES :=	tests.cpp
 
-TESTS_HEADERS :=	tests.hpp
+TESTS_HEADERS :=	CliTest.hpp
+
+HEADERS :=	$(addprefix $(TESTS_LIBRAIRY_DIR), $(TESTS_HEADERS))
 
 TESTS_OBJ =	$(addprefix $(TESTS_OBJ_DIR), \
 			$(addsuffix .o, $(basename $(notdir $(TESTS_SOURCES)))))
@@ -99,8 +101,8 @@ $(MAIN): $(OBJS)
 
 tests: mkdir $(TEST) $(MAIN)
 
-$(TESTS_OBJ_DIR)%.o: $(TESTS_DIR)%.cpp# $(TESTS_HEADERS)
-	@$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(TESTS_OBJ_DIR)%.o: $(TESTS_DIR)%.cpp $(HEADERS)
+	@$(CXX) $(CXXFLAGS) -Itests/lib/ -c -o $@ $<
 
 $(TEST): $(TESTS_OBJ)
 	@$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)

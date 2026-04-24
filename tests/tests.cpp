@@ -1,8 +1,10 @@
 #include "cli.hpp"
+#include "CliTest.hpp"
 
 int main() {
 	vector<string>	str;
 	Cli				cli;
+	CliTest			cliTest;
 
 	str.push_back("bonjour");
 	str.push_back("je");
