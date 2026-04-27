@@ -1,7 +1,8 @@
-#include "cli.hpp"
 #include "CliTest.hpp"
+#include "OptionTest.hpp"
 
 int main() {
-	CliTest().runTest();
+	// CliTest().runTest();
+	OptionTest().runTest();
 	return 0;
 }

@@ -7,6 +7,9 @@
 
 using namespace std;
 
+bool	debug = true;
+ofstream	logout;
+
 class	AbstractTest
 {
 	protected:
