@@ -26,6 +26,7 @@ class	AbstractTest
 				getline(givenLog, logLine);
 				if (waitedLine.compare(logLine) != 0){
 					errorMSG();
+					break;
 				}
 			}
 		}
