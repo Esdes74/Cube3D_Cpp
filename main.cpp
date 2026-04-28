@@ -263,20 +263,20 @@
 // - Introduction, links and more at the top of imgui.cpp
 
 #include "main_utils.h"
-#include "arguments.hpp"
+#include "Options.hpp"
 
 // Main code
 int main(int ac, char** av)
 {
 	int				i;
-	Arguments		args;
+	Options			opts;
 	int				setup_result;
 	SetupWindows	S_SetupWindows;
 
 	i = 1;
 	while (i < ac)
 	{
-		args.find(i, av);
+		opts.find(i, av);
 		i++;
 	}
 

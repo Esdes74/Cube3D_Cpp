@@ -1,3 +1,12 @@
+# Sommaire
+
+- [Sommaire](#sommaire)
+- [Le choix de l'outil](#le-choix-de-loutil)
+	- [Driver utilisé](#driver-utilisé)
+		- [OpenGL](#opengl)
+		- [SDL 2](#sdl-2)
+- [Le choix des graphismes](#le-choix-des-graphismes)
+
 # Le choix de l'outil
 
 Pour l'instant le choix se dirigie plus vers l'outils imgui.
