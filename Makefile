@@ -102,7 +102,7 @@ $(MAIN): $(OBJS)
 ### TESTS
 #
 
-tests: mkdir $(TEST) $(MAIN)
+tests: mkdir $(MAIN) $(TEST)
 
 $(TESTS_OBJ_DIR)%.o: $(TESTS_DIR)%.cpp $(HEADERS)
 	@$(CXX) $(CXXFLAGS) -Itests/lib/ -c -o $@ $<
