@@ -1,2 +1,8 @@
 Début du test de l'option --debug
-After debug option debug = true
+Après l'utilisation de l'option debug, debug = true
+Début du test de l'option --cli-file
+Exception FileCliCommandDontExist attrapée
+Exception FileCliArgumentDontExist attrapée
+Exception NoFileCliArgument attrapée
+Début du test de l'option --headed
+Après l'utilisation de l'option headed, headed = false

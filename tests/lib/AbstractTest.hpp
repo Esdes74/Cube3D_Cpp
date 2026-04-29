@@ -7,7 +7,8 @@
 
 using namespace std;
 
-bool	debug = true;
+bool		debug = true;
+bool		headed = true;
 ofstream	logout;
 
 class	AbstractTest
