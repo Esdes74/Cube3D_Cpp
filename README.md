@@ -52,6 +52,8 @@ Pour lancer le moteur:
     Cela signifie que le moteur se lance avec un terminal accessible
     Le terminal sera une reproduction de la cli (il permettra donc de faire les memes commandes que la cli)
 
+	Le mode debug permet également l'impression de message dans le fichier de logout et un affichage différent ou non des éléments dans le moteur (chunk box, hit box, etc...)
+
 ---
 `--headless`
 
@@ -60,6 +62,20 @@ Pour lancer le moteur:
 > Seulement l'affichage du jeu ne se fait pas. En revanche la console du debug ou de la cli peut s'afficher pour intéragir avec
 
 --> A tester sur un server headless (comme le vps pour mon site)
+
+---
+`--logout <file>`
+
+	Elle permet de définir un fichier de log pour les logs de sortis
+
+> Par défault le fichier de log s'appel Error.log
+
+---
+`--log-repository <rep>`
+
+	Elle permet de définir un répertoire où imprimer le log de sortie
+
+> Par défault le répertoire d'impression des logs est .log/
 
 ## Exemples
 
