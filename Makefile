@@ -9,6 +9,7 @@ OBJ_DIR := .obj/
 BACKENDS_DIR := $(IMGUI_DIR)backends/
 OPTIONS_DIR := $(LIBRAIRY_DIR)options/
 CLI_DIR := $(LIBRAIRY_DIR)cli/
+UTILS_DIR := $(LIBRAIRY_DIR)utils/
 
 IMGUI_SOURCES =	imgui.cpp \
 				imgui_demo.cpp \
@@ -30,19 +31,22 @@ IMGUI_HEADEARS :=	main_utils.h
 
 OPTIONS_HEADERS :=	Options.hpp
 
-CLI_HEADERS :=	Cli.hpp \
-				Utils.hpp
+CLI_HEADERS :=	Cli.hpp
+
+UTILS_HEADERS :=	Utils.hpp
 
 HDS = $(addprefix $(IMGUI_DIR), $(IMGUI_HEADEARS))
 HDS += $(addprefix $(OPTIONS_DIR), $(OPTIONS_HEADERS))
 HDS += $(addprefix $(CLI_DIR), $(CLI_HEADERS))
+HDS += $(addprefix $(UTILS_DIR), $(UTILS_HEADERS))
 
 LINUX_GL_LIBS = -lGL
 
 INCLUDES :=	-I$(IMGUI_DIR) \
 			-I$(BACKENDS_DIR) \
 			-I$(OPTIONS_DIR) \
-			-I$(CLI_DIR)
+			-I$(CLI_DIR) \
+			-I$(UTILS_DIR)
 
 CXXFLAGS = $(INCLUDES) `sdl2-config --cflags`
 CXXFLAGS += -g -Wall -Wformat

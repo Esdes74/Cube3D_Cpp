@@ -276,8 +276,13 @@ int main(int ac, char** av)
 	i = 1;
 	while (i < ac)
 	{
-		opts.find(i, av);
-		i++;
+		try
+		{
+			opts.find(i, av);
+			i++;
+		} catch (exception &expt) {
+			cerr << "Error occurs: " << expt.what() << endl;
+		}
 	}
 
 	// setup_result = setup(S_SetupWindows);
