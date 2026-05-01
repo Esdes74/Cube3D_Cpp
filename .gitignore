@@ -43,3 +43,5 @@
 imgui.ini
 Motor
 Tests
+
+tests/log
