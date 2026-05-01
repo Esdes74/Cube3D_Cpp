@@ -17,6 +17,8 @@ Lors de l'utilisation de la cli, il suffit de parser avec espace les lignes réc
 Si le find sort quelque chose alors la commande est valide.
 Il suffit d'éxécuter le pointeur de fonction trouvé en lui donnant le reste de la ligne en arguments.
 
+Si la commande donné n'éxiste pas, l'exception `CliCommandDontExist` est lancé.
+
 # Les commandes
 
 Lancement d'un fichier de map

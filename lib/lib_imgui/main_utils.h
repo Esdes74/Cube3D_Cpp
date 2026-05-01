@@ -5,8 +5,14 @@
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 #include <stdio.h>
+#include <string>
 #include <SDL.h>
 #include <SDL_opengl.h>
+
+bool		debug = false;
+bool		headed = true;
+std::string	log_rep = ".log/";
+std::string	logout = "Error.log";
 
 typedef struct S_SetupWindows
 {
