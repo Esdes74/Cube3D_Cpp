@@ -270,8 +270,8 @@ int main(int ac, char** av)
 {
 	int				i;
 	Options			opts;
-	int				setup_result;
-	SetupWindows	S_SetupWindows;
+	// int				setup_result;
+	// SetupWindows	S_SetupWindows;
 
 	i = 1;
 	while (i < ac)
@@ -280,31 +280,31 @@ int main(int ac, char** av)
 		i++;
 	}
 
-	setup_result = setup(S_SetupWindows);
-	if (setup_result != 0)
-	{
-		return setup_result;
-	}
+	// setup_result = setup(S_SetupWindows);
+	// if (setup_result != 0)
+	// {
+	// 	return setup_result;
+	// }
 
-	// Main loop
-	bool done = false;
-	while (!done)
-	{
-		handle_poll_events(S_SetupWindows, done);
-		if (SDL_GetWindowFlags(S_SetupWindows.window) & SDL_WINDOW_MINIMIZED)
-		{
-			SDL_Delay(10);
-			continue;
-		}
+	// // Main loop
+	// bool done = false;
+	// while (!done)
+	// {
+	// 	handle_poll_events(S_SetupWindows, done);
+	// 	if (SDL_GetWindowFlags(S_SetupWindows.window) & SDL_WINDOW_MINIMIZED)
+	// 	{
+	// 		SDL_Delay(10);
+	// 		continue;
+	// 	}
 
-		start_frame(S_SetupWindows);
+	// 	start_frame(S_SetupWindows);
 
-		main_loop(S_SetupWindows);
+	// 	main_loop(S_SetupWindows);
 
-		render_frame(S_SetupWindows);
-	}
+	// 	render_frame(S_SetupWindows);
+	// }
 
-	cleanup(S_SetupWindows);
+	// cleanup(S_SetupWindows);
 
 	return 0;
 }
