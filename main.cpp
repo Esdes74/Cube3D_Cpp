@@ -269,16 +269,18 @@
 int main(int ac, char** av)
 {
 	int				i;
+	vector<string>	argVector;
 	Options			opts;
 	// int				setup_result;
 	// SetupWindows	S_SetupWindows;
 
 	i = 1;
+	argVector = opts.handleArgs(av);
 	while (i < ac)
 	{
 		try
 		{
-			opts.find(i, av);
+			opts.find(i, argVector);
 			i++;
 		} catch (exception &expt) {
 			cerr << "Error occurs: " << expt.what() << endl;

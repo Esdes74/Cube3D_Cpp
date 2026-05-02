@@ -27,6 +27,12 @@ Pour lancer le moteur:
     Dans certains cas (avec certaines options) les arguments sont facultatifs mais si le moteur est lancé sans options le moteur affichera une erreure d'argument invalide dans la console et s'arretera
 
 ---
+Les options ont un ordre d'appel, si vous ne le respectez pas pas de panique le programme les remet dans l'ordre pour vous.
+L'ordre est `--debug -> --log-repository -> --logout`
+> Pour les autres options l'ordre n'est pas important
+>
+> Si vous ne mettez pas l'option debug alors l'ordre appliqué sera `--log-repository -> --logout`
+
 [Cliquer ici pour voir la doc technique des options et arguments](Doc/Documentation_technique/Index.md)
 
 ## Options

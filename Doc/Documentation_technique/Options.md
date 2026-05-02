@@ -22,6 +22,10 @@ Lors de la vérification des arguments de la ligne de commande il suffit d'éxé
 Si le find sort quelque chose c'est que l'argument est correcte.
 Il suffit seulement d'éxécuter le pointeur de fonction correspondant à la clés trouvé avec le find.
 
+La classe option possède également une fonction handleArgs, qui est une fonction public.
+Cette fonction est la pour trier les options pour les remettre dans le bon sens. Elle ne fais que ca, aucune vérification.
+Lorsqu'une fonction doit posséder un ou plusieurs arguments elle vérifie que la suite des arguments n'est pas vide pour éviter un segfault, si elle n'est pas vide alors il swap l'option et son argument.
+
 # Les options
 
 Description des actions de chaques options.
