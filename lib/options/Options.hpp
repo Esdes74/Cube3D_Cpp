@@ -6,6 +6,7 @@
 # include <iostream>
 # include <unistd.h>
 # include <cstring>
+# include <algorithm>
 # include "Cli.hpp"
 # include "Utils.hpp"
 
@@ -14,32 +15,32 @@ using namespace std;
 class Options
 {
 	private:
-		map<string, void (*)(int &, char **)>	optionsMap;
+		map<string, void (*)(int &, vector<string>)>	optionsMap;
 
-		static void	cliOpt(int &i, char **av){
+		static void	cliOpt(int &i, vector<string> av){
 			cout << "Dans la fonction de cli" << endl;
 			Cli().openCli();
 		};
 
-		static void	cliFileOpt(int &i, char **av){
-			if (av[++i]){
+		static void	cliFileOpt(int &i, vector<string> av){
+			if ((size_t)i < av.size()){
 				verifCliFileArg(av[i]);
-				Cli().openCliFile(av[++i]);
+				Cli().openCliFile(av[i]);
 			} else {
 				throw NoCliFileArgument();
 			}
 		};
 
-		static void	debugOpt(int &i, char **av){
+		static void	debugOpt(int &i, vector<string> av){
 			debug = true;
 		};
 
-		static void	headlessOpt(int &i, char **av){
+		static void	headlessOpt(int &i, vector<string> av){
 			headed = false;
 		};
 
-		static void	logoutOpt(int &i, char **av){
-			if (av[++i]){
+		static void	logoutOpt(int &i, vector<string> av){
+			if ((size_t)i < av.size()){
 				verifLogoutArg(av[i]);
 				logout = av[i];
 			} else {
@@ -47,8 +48,8 @@ class Options
 			}
 		};
 
-		static void	logrepOpt(int &i, char **av){
-			if (av[++i]){
+		static void	logrepOpt(int &i, vector<string> av){
+			if ((size_t)i < av.size()){
 				verifLogrepArg(av[i]);
 				log_rep = av[i];
 			} else {
@@ -56,14 +57,14 @@ class Options
 			}
 		};
 
-		static void	verifCliFileArg(char *path){
-			if (access(path, F_OK | R_OK)){
+		static void	verifCliFileArg(string path){
+			if (access(path.c_str(), F_OK | R_OK)){
 				return ;
 			}
 			throw CliFileArgumentUnvalid();
 		}
 
-		static void	verifLogoutArg(char *file){
+		static void	verifLogoutArg(string file){
 			vector<string>	file_name;
 
 			file_name = Utils::splitString(file, '.');
@@ -73,14 +74,12 @@ class Options
 			throw LogoutArgumentUnvalid();
 		}
 
-		static void	verifLogrepArg(char *rep){
-			if (access(rep, F_OK | R_OK)){
+		static void	verifLogrepArg(string rep){
+			if (access(rep.c_str(), F_OK | R_OK)){
 				return ;
 			}
 			throw LogrepArgumentUnvalid();
 		}
-
-
 
 	public:
 		Options(){
@@ -89,11 +88,40 @@ class Options
 			optionsMap["--debug"] = debugOpt;
 			optionsMap["--headless"] = headlessOpt;
 			optionsMap["--logout"] = logoutOpt;
-			optionsMap["--log-rep"] = logrepOpt;
+			optionsMap["--log-repository"] = logrepOpt;
 		};
 
-		void	find(int &i, char **av){
-			map<string, void (*)(int &, char **)>::iterator	it;
+		vector<string>	handleArgs(char **av){
+			int				ind;
+			vector<string>	argVector;
+			vector<string>	optOrder = {"--debug", "--log-rep", "--logout"};
+
+			for (size_t i = 0; i < optOrder.size(); i++){
+				ind = 1;
+				while (av[ind]){
+					if (av[ind] == optOrder[i]){
+						argVector.push_back(av[ind]);
+						if (i > 0 && av[++ind]){
+							argVector.push_back(av[ind]);
+						}
+					}
+					ind++;
+				}
+			}
+
+			ind = 0;
+			while (av[ind]){
+				if (std::find(argVector.begin(), argVector.end(), av[ind]) != argVector.end()){
+					argVector.push_back(av[ind]);
+				}
+				ind++;
+			}
+
+			return (argVector);
+		}
+
+		void			find(int &i, vector<string> av){
+			map<string, void (*)(int &, vector<string> )>::iterator	it;
 			it = optionsMap.find(av[i]);
 
 			if (it != optionsMap.end())
