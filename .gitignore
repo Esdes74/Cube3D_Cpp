@@ -45,3 +45,5 @@ Motor
 Tests
 
 tests/log
+
+tests/files/CliFileTests/UnreadableFile.txt
