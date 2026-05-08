@@ -1,8 +1,51 @@
+##########################################
 Début du test de l'option --debug
+##########################################
+
 Après l'utilisation de l'option debug, debug = true
+
+##########################################
+Début du test de l'option --headless
+##########################################
+
+Après l'utilisation de l'option headless, headed = false
+
+##########################################
+Début du test de l'option --logout
+##########################################
+
+Fichier tests/files/LogTests/Unexisting.log correctement créée
+Après l'utilisation de l'option logout, logout = Unexisting.log
+Répertoire tests/files/LogTests/UnexistingRep correctement créée
+Après l'utilisation de l'option logout, logout = UnexistingRep/Null.log
+Après l'utilisation de l'option logout, logout = Unreadable.log
+Après l'utilisation de l'option logout, logout = Unexecutable.log
+Après l'utilisation de l'option logout, logout = option_test_log.log
+Exception LogoutArgumentUnvalid attrapée
+Exception LogoutArgumentUnvalid attrapée
+Exception LogoutArgumentUnvalid attrapée
+Exception NoLogoutArgument attrapée
+
+##########################################
+Début du test de l'option --log-repository
+##########################################
+
+Répertoire tests/files/LogTests/UnexistingRep correctement créée
+Après l'utilisation de l'option log rep, log_rep = test/files/LogTests/Unexisting/
+Après l'utilisation de l'option log rep, log_rep = test/log/
+Exception LogrepArgumentUnvalid attrapée
+Exception LogrepArgumentUnvalid attrapée
+Exception LogrepArgumentUnvalid attrapée
+Exception LogrepArgumentUnvalid attrapée
+Exception LogrepArgumentUnvalid attrapée
+Exception NoLogrepArgument attrapée
+
+##########################################
 Début du test de l'option --cli-file
-Exception FileCliCommandDontExist attrapée
-Exception FileCliArgumentDontExist attrapée
-Exception NoFileCliArgument attrapée
-Début du test de l'option --headed
-Après l'utilisation de l'option headed, headed = false
+##########################################
+
+Exception CliFileArgumentUnvalid attrapée
+Exception CliFileArgumentUnvalid attrapée
+Exception CliFileArgumentUnvalid attrapée
+Exception CliFileArgumentUnvalid attrapée
+Exception NoCliFileArgument attrapée
