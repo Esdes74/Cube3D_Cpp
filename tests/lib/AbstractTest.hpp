@@ -7,9 +7,10 @@
 
 using namespace std;
 
-bool		debug = true;
-bool		headed = true;
-ofstream	logout;
+bool	debug = true;
+bool	headed = true;
+string	log_rep = "tests/log";
+string	logout = "Error.log";
 
 class	AbstractTest
 {
