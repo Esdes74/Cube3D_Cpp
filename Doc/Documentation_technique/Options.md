@@ -5,9 +5,9 @@
 - [Fonctionnement technique](#fonctionnement-technique)
 - [Les options](#les-options)
 	- [--debug](#--debug)
-	- [--headed](#--headed)
+	- [--headless](#--headless)
 	- [--logout](#--logout)
-	- [--log-rep](#--log-rep)
+	- [--log-repository](#--log-repository)
 	- [--cli-file](#--cli-file)
 
 # Classe
@@ -36,21 +36,21 @@ Certaines peuvent lancer une exception. Dans le cadre du projet motor, si une ex
 
 Elle passe la variable globale debug à true.
 
-## --headed
+## --headless
 
 Elle passe la variable global headed à false
 
 ## --logout
 
-Elle redéfinis la variable global logout pour définir un fichier de sortie log
+Elle redéfinis la variable global `logout` pour définir un fichier de sortie log
 
 Si l'argument n'est pas présent lance l'exception `NoLogoutArgument`
 Si l'argument est présent mais non valide l'exception `LogoutArgumentUnvalid`
 > Un argument valide est un non de fichier finissant par .log
 
-## --log-rep
+## --log-repository
 
-Elle redéfinis la variable logout log_rep avec le répertoire donnée en argument
+Elle redéfinis la variable global `log_rep` avec le répertoire donnée en argument
 
 Si l'argument n'est pas présent lance l'exception `NoLogrepArgument`
 Si l'argument est présent mais que le répertoire n'éxiste pas l'exception `LogrepArgumentUnvalid`
